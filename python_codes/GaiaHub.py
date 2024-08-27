@@ -120,7 +120,7 @@ def gaiahub(argv):
 
    photometric_cols = 'phot_g_mean_flux, phot_g_mean_mag AS gmag, (1.086*phot_g_mean_flux_error/phot_g_mean_flux) AS gmag_error, phot_bp_mean_mag AS bpmag, (1.086*phot_bp_mean_flux_error/phot_bp_mean_flux) AS bpmag_error, phot_rp_mean_mag AS rpmag, (1.086*phot_rp_mean_flux_error/phot_rp_mean_flux) AS rpmag_error, bp_rp, sqrt( power( (1.086*phot_bp_mean_flux_error/phot_bp_mean_flux), 2) + power( (1.086*phot_rp_mean_flux_error/phot_rp_mean_flux), 2) ) as bp_rp_error'
 
-   quality_cols = 'ecl_lat, pseudocolour, nu_eff_used_in_astrometry, visibility_periods_used, astrometric_excess_noise_sig, astrometric_params_solved, astrometric_n_good_obs_al, astrometric_chi2_al, phot_bp_rp_excess_factor, ruwe, (phot_bp_n_blended_transits+phot_rp_n_blended_transits) *1.0 / (phot_bp_n_obs + phot_rp_n_obs) AS beta, ipd_gof_harmonic_amplitude, phot_bp_n_contaminated_transits, phot_rp_n_contaminated_transits'
+   quality_cols = 'ecl_lat, pseudocolour, nu_eff_used_in_astrometry, visibility_periods_used, astrometric_excess_noise_sig, astrometric_params_solved, astrometric_n_good_obs_al, astrometric_chi2_al, phot_bp_rp_excess_factor, ruwe, (phot_bp_n_blended_transits+phot_rp_n_blended_transits) *1.0 / (phot_bp_n_obs + phot_rp_n_obs) AS beta, ipd_gof_harmonic_amplitude, phot_bp_n_contaminated_transits, phot_rp_n_contaminated_transits, ref_epoch'
 
    query, quality_cols = gh.columns_n_conditions(args.source_table, astrometric_cols, photometric_cols, quality_cols, args.ra, args.dec, args.search_width, args.search_height)
 
